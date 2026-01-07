@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ξερή - ADISE Project</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Χρειαζόμαστε jQuery όπως το σκάκι -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body { background: #2c3e50; color: white; font-family: sans-serif; text-align: center; }
         .card {
@@ -24,40 +24,35 @@
     <input type="text" id="username" placeholder="Όνομα Παίκτη">
     <br><br>
     <button class="btn" onclick="login()">Είσοδος</button>
-
     <button class="btn" style="background: #c0392b; margin-left: 10px;" onclick="reset_game()">Reset Game</button>
 </div>
 
-
-
 <div id="game-area">
     <div id="info">Status: <span id="status-text">Waiting...</span></div>
-
 
     <div id="scoreboard" style="display: flex; justify-content: space-between; background: #34495e; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
         <div style="color: #3498db; font-weight: bold;" id="my-details">Εγώ: - (0)</div>
         <div style="color: #e74c3c; font-weight: bold;" id="opp-details">Αντίπαλος: - (0)</div>
     </div>
 
-    <!-- 1. Βάλε αυτό ΜΕΣΑ στο <div id="game-area">, κάτω από το scoreboard -->
     <div style="margin-bottom: 10px; font-size: 14px; color: #bdc3c7;">
         🎴 Φύλλα στην τράπουλα: <span id="deck-count" style="color: white; font-weight: bold;">-</span>
     </div>
 
-    <!-- 2. Βάλε αυτό ΣΤΟ ΤΕΛΟΣ, πριν το </body> -->
-    <div id="game-over-screen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000;">
-        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center;">
-            <h1 style="color: #f1c40f; font-size: 50px;">ΤΕΛΟΣ ΠΑΙΧΝΙΔΙΟΥ!</h1>
-            <h2 id="final-score"></h2>
-            <br>
-            <button class="btn" style="background: #27ae60;" onclick="reset_game()">Παίξε Ξανά</button>
-            <button class="btn" style="background: #c0392b; margin-left: 20px;" onclick="location.reload()">Έξοδος</button>
-        </div>
-    </div>
     <h3>Τραπέζι</h3>
     <div id="board"></div>
     <h3>Το Χέρι σου</h3>
     <div id="hand"></div>
+</div>
+
+<div id="game-over-screen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000;">
+    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center;">
+        <h1 style="color: #f1c40f; font-size: 50px;">ΤΕΛΟΣ ΠΑΙΧΝΙΔΙΟΥ!</h1>
+        <h2 id="final-score"></h2>
+        <br>
+        <button class="btn" style="background: #27ae60;" onclick="reset_game()">Παίξε Ξανά</button>
+        <button class="btn" style="background: #c0392b; margin-left: 20px;" onclick="location.reload()">Έξοδος</button>
+    </div>
 </div>
 
 <script src="script.js"></script>

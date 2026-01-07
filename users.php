@@ -1,5 +1,4 @@
 <?php
-// lib/users.php
 
 function handle_player($method, $request, $input) {
     if($method=='GET' && isset($input['token'])) {
@@ -70,8 +69,6 @@ function handle_login($input) {
     $st->execute();
 
     if($count == 1) { // Αν μπήκε και ο δεύτερος
-        // ΔΙΟΡΘΩΣΗ: Καλουμε το game.php σωστά
-
         reset_board();
     }
 

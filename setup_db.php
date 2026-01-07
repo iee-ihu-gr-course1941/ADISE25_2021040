@@ -1,5 +1,4 @@
 <?php
-// lib/setup_db.php
 
 require_once "dbconnect.php";
 
@@ -7,7 +6,7 @@ require_once "dbconnect.php";
 $mysqli->query("DROP TABLE IF EXISTS players");
 $mysqli->query("DROP TABLE IF EXISTS game_status");
 
-// 1. Game Status Table
+//  Game Status Table
 $sql1 = "CREATE TABLE game_status (
     id INT PRIMARY KEY,
     status ENUM('waiting', 'started', 'ended', 'aborted') DEFAULT 'waiting',
@@ -18,7 +17,7 @@ $sql1 = "CREATE TABLE game_status (
     last_change TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-// 2. Players Table (ΤΩΡΑ ΜΕ ΤΗ ΣΤΗΛΗ p_turn)
+//  Players Table
 $sql2 = "CREATE TABLE players (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
@@ -28,12 +27,12 @@ $sql2 = "CREATE TABLE players (
     score INT DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
-// 3. Initialize Game
+// Αρχικοποίηση
 $sql3 = "INSERT INTO game_status (id, status, board, deck) VALUES (1, 'waiting', '[]', '[]');";
-
+// Εκτέλεση queries
 if($mysqli->query($sql1) && $mysqli->query($sql2) && $mysqli->query($sql3)) {
     echo "<h1>✅ ΕΠΙΤΥΧΙΑ!</h1> <p>Οι πίνακες φτιάχτηκαν σωστά (με το p_turn).</p>";
-    echo "<a href='../index.html'>👉 Πάμε στο Παιχνίδι</a>";
+    echo "<a href='index.html'>👉 Πάμε στο Παιχνίδι</a>";
 } else {
     echo "<h1>❌ Σφάλμα:</h1> " . $mysqli->error;
 }
